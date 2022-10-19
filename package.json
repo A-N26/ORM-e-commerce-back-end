@@ -1,0 +1,43 @@
+{
+  "name": "orm-e-commerce-back-end",
+  "version": "1.0.0",
+  "description": "Building the back end for an e-commerce site using Express.js API and configuring it to use Sequelize to interact with MySQL database. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A-N26/ORM-e-commerce-back-end.git"
+  },
+  "keywords": [
+    "Object-Relational-Mapping(ORM)",
+    "Express.js",
+    "API",
+    "Sequelize",
+    "MySQL",
+    "database",
+    "MySQL2",
+    "dotenv",
+    "Insomnia",
+    "GET/POST/PUT/DELETE routes"
+  ],
+  "author": "A-N26",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/A-N26/ORM-e-commerce-back-end/issues"
+  },
+  "homepage": "https://github.com/A-N26/ORM-e-commerce-back-end#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.23.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

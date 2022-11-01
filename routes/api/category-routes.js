@@ -6,28 +6,25 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
-  Category.findAll({
-    attributes:
-      [
-        'id',
-        'category_name'
-      ],
-    include:
-      [
-        {
-          model: Product,
-          attributes:
-            [
-              'id',
-              'product_name',
-              'price',
-              'stock',
-              'category_id'
-            ]
-        }
-      ]
-  })
-    .then(CategoryDB_Info => res.json(CategoryDB_Info))
+  Category.findAll(
+    {
+      include:
+      {
+        model: Product,
+        attributes:
+          [
+            'id', 'product_name', 'price', 'stock', 'category_id'
+          ]
+      }
+    }
+  )
+    .then((CatInfo_db) => {
+      if (!CatInfo_db) {
+        res.status(404).json({ message: 'No Category/s found.' });
+        return;
+      }
+      res.json(CatInfo_db);
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -37,45 +34,32 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
-  Category.findOne({
-    where:
+  Category.findOne(
     {
-      id: req.params.id
-    },
-    attributes:
-      [
-        'id',
-        'category_name'
-      ],
-    include:
-      [
-        {
-          model: Product,
-          attributes:
-            [
-              'id',
-              'product_name',
-              'price',
-              'stock',
-              'category_id'
-            ]
-        }
-      ]
-  })
-    .then(CategoryDB_Info => {
-      if (!CategoryDB_Info) {
-        res.status(404).json(
-          {
-            message: 'Error...unknown category. Please enter valid id.'
-          }
-        );
+      where:
+      {
+        id: req.params.id
+      },
+      include:
+      {
+        model: Product,
+        attributes:
+          [
+            'id', 'product_name', 'price', 'stock', 'category_id'
+          ]
+      }
+    }
+  )
+    .then(CatInfo_db => {
+      if (!CatInfo_db) {
+        res.status(404).json({ message: 'No Category found with this id.' });
         return;
       }
-      res.json(CategoryDB_Info);
+      res.json(CatInfo_db);
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(500).json(err)
     });
 });
 
@@ -84,8 +68,14 @@ router.post('/', (req, res) => {
   Category.create({
     category_name: req.body.category_name
   })
-    .then(CategoryDB_Info => res.json(CategoryDB_Info))
-    .catch (err => {
+    .then(CatInfo_db => {
+      if (!CatInfo_db) {
+        res.status(404).json({ message: 'No category created.' });
+        return;
+      }
+      res.json(CatInfo_db);
+    })
+    .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
@@ -99,16 +89,12 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(CategoryDB_Info => {
-      if (!CategoryDB_Info[0]) {
-        res.status(404).json(
-          {
-            message: 'Error updating category, id unknown. Please try again.'
-          }
-        );
+    .then(CatInfo_db => {
+      if (!CatInfo_db) {
+        res.status(404).json({ message: 'No Category found, to update, with this id.' });
         return;
       }
-      res.json(CategoryDB_Info);
+      res.json(CatInfo_db);
     })
     .catch(err => {
       console.log(err);
@@ -124,16 +110,12 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-    .then(CategoryDB_Info => {
-      if (!CategoryDB_Info) {
-        res.status(404).json(
-          {
-            message: 'Error deleting category, id unknown. Please try again.'
-          }
-        );
+    .then(CatInfo_db => {
+      if (!CatInfo_db) {
+        res.status(404).json({ message: 'No Category found, to delete, with this id.' });
         return;
       }
-      res.json(CategoryDB_Info);
+      res.json(CatInfo_db);
     })
     .catch(err => {
       console.log(err);

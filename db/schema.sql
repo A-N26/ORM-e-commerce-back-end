@@ -4,5 +4,3 @@ DROP DATABASE IF EXISTS ecommerceAN_db;
 -- CREATE DATABASE
 CREATE DATABASE ecommerceAN_db;
 
--- USE  DATABASE
-USE ecommerceAN_DB;

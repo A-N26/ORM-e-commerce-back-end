@@ -7,27 +7,22 @@ router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
   Tag.findAll({
-    attributes:
-      [
-        'id',
-        'tag_name'
-      ],
     include:
-      [
-        {
-          model: Product,
-          attributes:
-            [
-              'id',
-              'product_name',
-              'price',
-              'stock',
-              'category_id'
-            ]
-        }
-      ]
+    {
+      model: Product,
+      attributes:
+        [
+          'product_name', 'price', 'stock', 'category_id'
+        ]
+    }
   })
-    .then(TagDB_Info => res.json(TagDB_Info))
+    .then(TagInfo_db => {
+      if (!TagInfo_db) {
+        res.status(404).json({ message: 'No tag/s found.' });
+        return;
+      }
+      res.json(TagInfo_db);
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -38,40 +33,25 @@ router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
   Tag.findOne({
-    where:
+    Where:
     {
       id: req.params.id
     },
-    attributes:
-      [
-        'id',
-        'tag_name'
-      ],
     include:
-      [
-        {
-          model: Product,
-          attributes:
-            [
-              'id',
-              'product_name',
-              'price',
-              'stock',
-              'category_id'
-            ]
-        }
-      ]
+    {
+      model: Product,
+      attributes:
+        [
+          'product_name', 'price', 'stock', 'category_id'
+        ]
+    }
   })
-    .then(TagDB_Info => {
-      if (!TagDB_Info) {
-        res.status(404).json(
-          {
-            message: 'Error...unknown tag. Please enter valid id.'
-          }
-        );
+    .then(TagInfo_db => {
+      if (!TagInfo_db) {
+        res.status(404).json({ message: 'No tag found with this id.' });
         return;
       }
-      res.json(TagDB_Info);
+      res.json(TagInfo_db);
     })
     .catch(err => {
       console.log(err);
@@ -82,33 +62,35 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new tag
   Tag.create({
-    tag_name: req.body.tag_name
+    tag_name: req.params.tag_name
   })
-    .then(TagDB_Info => res.json(TagDB_Info))
+    .then(TagInfo_db => {
+      if (!TagInfo_db) {
+        res.status(404).json({ message: 'No tag found.' });
+        return;
+      }
+      res.json(TagInfo_db);
+    })
     .catch(err => {
       console.log(err);
-      res.status(500).json(err)
+      res.status(500).json(err);
     });
 });
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  Tag.update(req.body, {
-    where:
+  Tag.update({
+    Where:
     {
       id: req.params.id
     }
   })
-    .then(TagDB_Info => {
-      if (!TagDB_Info[0]) {
-        res.status(404).json(
-          {
-            message: 'Error updating tag, id unknown. Please try again.'
-          }
-        );
+    .then(TagInfo_db => {
+      if (!TagInfo_db) {
+        res.status(404).json({ message: 'No tag found, to update, with this id.' });
         return;
       }
-      res.json(TagDB_Info);
+      res.json(TagInfo_db);
     })
     .catch(err => {
       console.log(err);
@@ -119,21 +101,17 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
   Tag.destroy({
-    where:
+    Where:
     {
       id: req.params.id
     }
   })
-    .then(TagDB_Info => {
-      if (!TagDB_Info) {
-        res.status(404).json(
-          {
-            message: 'Error deleting tag, id unknown. Please try again.'
-          }
-        );
+    .then(TagInfo_db => {
+      if (!TagInfo_db) {
+        res.status(404).json({ message: 'No tag found, to delete, with this id.' });
         return;
       }
-      res.json(TagDB_Info);
+      res.json(TagInfo_db);
     })
     .catch(err => {
       console.log(err);

@@ -10,19 +10,14 @@ router.get('/', (req, res) => {
   Product.findAll({
     attributes:
       [
-        'id',
-        'product_name',
-        'price',
-        'stock',
-        'category_id'
+        'id', 'product_name', 'price', 'stock', 'category_id'
       ],
-    include:
+    includes:
       [
         {
           model: Category,
           attributes:
             [
-              'id',
               'category_name'
             ]
         },
@@ -30,17 +25,22 @@ router.get('/', (req, res) => {
           model: Tag,
           attributes:
             [
-              'id',
               'tag_name'
             ]
-        },
+        }
       ]
   })
-    .then(ProductDB_Info => res.json(ProductDB_Info))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+    .then(ProductInfo_db => {
+      if (!ProductInfo_db) {
+        res.status(404).json({ message: 'No product/s found.' });
+        return;
+      }
+      res.json(ProductInfo_db);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // get one product
@@ -48,16 +48,13 @@ router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   Product.findOne({
-    where: {
+    Where:
+    {
       id: req.params.id
     },
     attributes:
       [
-        'id',
-        'product_name',
-        'price',
-        'stock',
-        'category_id'
+        'id', 'product_name', 'price', 'stock', 'category_id'
       ],
     include:
       [
@@ -65,7 +62,6 @@ router.get('/:id', (req, res) => {
           model: Category,
           attributes:
             [
-              'id',
               'category_name'
             ]
         },
@@ -73,22 +69,17 @@ router.get('/:id', (req, res) => {
           model: Tag,
           attributes:
             [
-              'id',
               'tag_name'
             ]
         }
       ]
   })
-    .then(ProductDB_Info => {
-      if (!ProductDB_Info) {
-        res.status(404).json(
-          {
-            message: 'Error...unknown Product. Please enter valid id.'
-          }
-        );
+    .then(ProductInfo_db => {
+      if (!ProductInfo_db) {
+        res.status(404).json({ message: 'No Product found with this id.' });
         return;
       }
-      res.json(ProductDB_Info);
+      res.json(ProductInfo_db);
     })
     .catch(err => {
       console.log(err);
@@ -110,19 +101,19 @@ router.post('/', (req, res) => {
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
-        const productTagId_list = req.body.tagIds.map((tag_id) => {
+        const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
             tag_id,
           };
         });
-        return ProductTag.bulkCreate(productTagId_list);
+        return ProductTag.bulkCreate(productTagIdArr);
       }
       // if no product tags, just respond
       res.status(200).json(product);
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       res.status(400).json(err);
     });
@@ -173,20 +164,17 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
-    where: {
+    Where:
+    {
       id: req.params.id
     }
   })
-    .then(ProductDB_Info => {
-      if (!ProductDB_Info) {
-        res.status(404).json(
-          {
-            message: 'Error deleting product, id unknown. Please try again.'
-          }
-        );
+    .then(ProductInfo_db => {
+      if (!ProductInfo_db) {
+        res.status(404).json({ message: 'No Product found, to delete, with this id.' });
         return;
       }
-      res.json(ProductDB_Info);
+      res.json(ProductInfo_db);
     })
     .catch(err => {
       console.log(err);

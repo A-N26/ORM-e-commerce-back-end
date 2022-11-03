@@ -13,9 +13,9 @@ router.get('/', (req, res) => {
         model: Product,
         attributes:
           [
-            'id', 'product_name', 'price', 'stock', 'category_id'
-          ]
-      }
+            'product_name', 'price', 'stock',
+          ],
+      },
     }
   )
     .then((CatInfo_db) => {
@@ -38,16 +38,16 @@ router.get('/:id', (req, res) => {
     {
       where:
       {
-        id: req.params.id
+        id: req.params.id,
       },
       include:
       {
         model: Product,
         attributes:
           [
-            'id', 'product_name', 'price', 'stock', 'category_id'
-          ]
-      }
+            'product_name', 'price', 'stock',
+          ],
+      },
     }
   )
     .then(CatInfo_db => {
@@ -66,7 +66,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new category
   Category.create({
-    category_name: req.body.category_name
+    category_name: req.body.category_name,
   })
     .then(CatInfo_db => {
       if (!CatInfo_db) {
@@ -86,8 +86,8 @@ router.put('/:id', (req, res) => {
   Category.update(req.body, {
     where:
     {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(CatInfo_db => {
       if (!CatInfo_db) {
@@ -107,8 +107,8 @@ router.delete('/:id', (req, res) => {
   Category.destroy({
     where:
     {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(CatInfo_db => {
       if (!CatInfo_db) {

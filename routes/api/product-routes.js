@@ -10,25 +10,16 @@ router.get('/', (req, res) => {
   Product.findAll({
     attributes:
       [
-        'id', 'product_name', 'price', 'stock', 'category_id'
+        'id', 'product_name', 'price', 'stock', 'category_id',
       ],
-    includes:
+    include:
       [
-        {
-          model: Category,
-          attributes:
-            [
-              'category_name'
-            ]
-        },
+        Category,
         {
           model: Tag,
-          attributes:
-            [
-              'tag_name'
-            ]
-        }
-      ]
+          through: ProductTag,
+        },
+      ],
   })
     .then(ProductInfo_db => {
       if (!ProductInfo_db) {
@@ -50,29 +41,19 @@ router.get('/:id', (req, res) => {
   Product.findOne({
     Where:
     {
-      id: req.params.id
+      id: req.params.id,
     },
     attributes:
       [
-        'id', 'product_name', 'price', 'stock', 'category_id'
+        'id', 'product_name', 'price', 'stock',
       ],
     include:
       [
+        Category,
         {
-          model: Category,
-          attributes:
-            [
-              'category_name'
-            ]
+          attributes: [ 'id', 'tag_name', ],
         },
-        {
-          model: Tag,
-          attributes:
-            [
-              'tag_name'
-            ]
-        }
-      ]
+      ],
   })
     .then(ProductInfo_db => {
       if (!ProductInfo_db) {
@@ -166,8 +147,8 @@ router.delete('/:id', (req, res) => {
   Product.destroy({
     Where:
     {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
     .then(ProductInfo_db => {
       if (!ProductInfo_db) {

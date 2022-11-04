@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
   Tag.findAll({
+    // where:
+    // {
+    //   id: req.params.id,
+    // },
     include:
     {
       model: Product,
@@ -31,7 +35,7 @@ router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
   Tag.findOne({
-    Where:
+    where:
     {
       id: req.params.id,
     },
@@ -39,10 +43,10 @@ router.get('/:id', (req, res) => {
     [
       {
         model: Product,
-        through: ProductTag,
+        // through: ProductTag,
         attributes:
         [
-          'id'
+          'category_id', 'product_name', 'price', 'stock',
         ]
       },
     ],
@@ -82,7 +86,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
   Tag.update({
-    Where:
+    where:
     {
       id: req.params.id,
     },
@@ -103,7 +107,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
   Tag.destroy({
-    Where:
+    where:
     {
       id: req.params.id,
     },

@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/A-N26/ORM-e-commerce-back-end#readme",
   "devDependencies": {
+    "@types/express": "^4.17.14",
     "nodemon": "^2.0.20"
   },
   "dependencies": {

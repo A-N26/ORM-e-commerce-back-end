@@ -9,18 +9,27 @@ router.get('/', (req, res) => {
   // be sure to include its associated Category and Tag data
   Product.findAll({
     attributes:
-      [
-        'id', 'product_name', 'price', 'stock', 'category_id',
-      ],
+    [
+      'id', 'product_name', 'price', 'stock',
+    ],
     include:
-      [
-        Category,
-        {
-          model: Tag,
-          through: ProductTag,
-        },
-      ],
-  })
+    [
+      {
+        model: Category,
+        attributes:
+        [
+          'category_name',
+        ],
+      },
+      {
+        model: Tag,
+        attributes:
+        [
+          'tag_name',
+        ]
+      },
+    ],
+    })
     .then(ProductInfo_db => {
       if (!ProductInfo_db) {
         res.status(404).json({ message: 'No product/s found.' });
@@ -39,20 +48,35 @@ router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   Product.findOne({
-    Where:
+    where:
     {
       id: req.params.id,
     },
     attributes:
-      [
-        'id', 'product_name', 'price', 'stock',
-      ],
+    [
+      'id', 'product_name', 'price', 'stock',
+    ],
     include:
       [
-        Category,
         {
-          attributes: [ 'id', 'tag_name', ],
+          model: Category,
+          attributes:
+          [
+            'category_name',
+          ],
         },
+        {
+          model: Tag,
+          attributes:
+          [
+            'tag_name',
+          ]
+        },
+        // Category,
+        // {
+        //   model: Tag,
+        //   through: ProductTag,
+        // },
       ],
   })
     .then(ProductInfo_db => {
@@ -145,7 +169,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
-    Where:
+    where:
     {
       id: req.params.id,
     },

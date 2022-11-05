@@ -30,12 +30,15 @@ Building the back end for an e-commerce site using Express.js API and configurin
 
 ## *Installation* 💾
 
-* `npm i` (to get node-modules `dependencies(nodemon as dev, dotenv, express, mysql2, sequelize)` folder and package-lock file from package.json).
+* `npm i` (to get node-modules `dependencies(nodemon as dev, dotenv, express, mysql2, sequelize)` folder and package-lock.json file from package.json).
 
-* get mysql database loaded from sql files (view gif below):
-  * `mysql -u root -p` > `source db/schema.sql`, (result can be checked by typing `show databases;` or/and `show tables;`), > `\quit`.
+* Next run `node seeds/index.js` to get all the database info synced for use.
 
-* Last but not the least, `npm run start` to start the server. Or, with nodemon installed as dev dependency, `nodemon (js file name)`.
+* `mysql -u root -p` >  `show databases;`, `show tables;` and `SELECT * FROM (table name);` (to confirm that the database is seeded and tables are populated with desired data) > `source db/schema.sql`(to initiate the database) > `\quit`.
+    > ![db](assets/initiate-db.gif "db")
+
+* Last but not the least, `npm run start` to start the server. Or, with nodemon installed as dev dependency, `npm run watch`.
+    > ![server start](assets/start.jpg)
 
 * external software needed to showcase the results: Insomnia.
 

@@ -30,12 +30,12 @@ Building the back end for an e-commerce site using Express.js API and configurin
 
 ## *Installation* 💾
 
-* `npm init` (to get node-modules folder and package-lock file from package.json).
-
-* Dependencies to install (`npm i`): mysql2, dotenv, nodemon, express, sequelize.
+* `npm i` (to get node-modules `dependencies(nodemon as dev, dotenv, express, mysql2, sequelize)` folder and package-lock file from package.json).
 
 * get mysql database loaded from sql files (view gif below):
-  * `mysql -u root -p` > `source db/schema.sql` > `\quit`. (result can be checked by typing `show database;` or/and `show tables;`)
+  * `mysql -u root -p` > `source db/schema.sql`, (result can be checked by typing `show databases;` or/and `show tables;`), > `\quit`.
+
+* Last but not the least, `npm run start` to start the server. Or, with nodemon installed as dev dependency, `nodemon (js file name)`.
 
 * external software needed to showcase the results: Insomnia.
 
@@ -68,7 +68,7 @@ class sessions, Starter-code and google&youtube
 
 ## *License*🪪🦡
 
-**(Please Click the BADGE for the license details.)**
+(**Please Click the BADGE for the license details.**)
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 

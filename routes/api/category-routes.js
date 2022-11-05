@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         model: Product,
         attributes:
           [
-            'product_name', 'price', 'stock',
+            'product_name', 'id', 'price', 'stock',
           ],
       },
     }
@@ -45,12 +45,12 @@ router.get('/:id', (req, res) => {
         model: Product,
         attributes:
           [
-            'product_name', 'price', 'stock',
+            'product_name', 'id', 'price', 'stock',
           ],
       },
     }
   )
-    .then(CatInfo_db => {
+    .then((CatInfo_db) => {
       if (!CatInfo_db) {
         res.status(404).json({ message: 'No Category found with this id.' });
         return;
@@ -65,10 +65,18 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
-  Category.create({
-    category_name: req.body.category_name,
-  })
-    .then(CatInfo_db => {
+  Category.create(
+    {
+      category_name: req.body.category_name,
+    },
+    {
+      where:
+      {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((CatInfo_db) => {
       if (!CatInfo_db) {
         res.status(404).json({ message: 'No category created.' });
         return;
@@ -81,14 +89,20 @@ router.post('/', (req, res) => {
     });
 });
 
+
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  Category.update(req.body, {
-    where:
+  Category.update(
     {
-      id: req.params.id,
+      category_name: req.body.category_name,
     },
-  })
+    {
+      where:
+      {
+        id: req.params.id,
+      },
+    }
+  )
     .then(CatInfo_db => {
       if (!CatInfo_db) {
         res.status(404).json({ message: 'No Category found, to update, with this id.' });

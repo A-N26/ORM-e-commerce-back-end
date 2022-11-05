@@ -16,13 +16,13 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     // product_name
     product_name:
     {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     // price
     price:
@@ -31,7 +31,7 @@ Product.init(
       allowNull: false,
       validate:
       {
-        isDecimal: true,
+        isDecimal: true
       },
     },
     // stock
@@ -42,7 +42,7 @@ Product.init(
       defaultValue: 10,
       validate:
       {
-        isNumeric: true,
+        isNumeric: true
       },
     },
     // category_id
@@ -52,7 +52,7 @@ Product.init(
       references:
       {
         model: 'category',
-        key: 'id',
+        key: 'id'
       },
     },
   },
@@ -61,7 +61,7 @@ Product.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product',
+    modelName: 'product'
   }
 );
 

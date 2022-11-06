@@ -34,10 +34,10 @@ Javascript, Express.js, Sequelize, MySQL database
 - Next run `node seeds/index.js` to get all the database info synced for use.
 
 - `mysql -u root -p` > `show databases;`, `show tables;` and `SELECT * FROM (table name);` (to confirm that the database is seeded and tables are populated with desired data) > `source db/schema.sql`(to initiate the database) > `\quit`.
-  ![db](assets/initiate-db.gif "db")
+  ![db](./media/initiate-db.gif "db")
 
 - Last but not the least, `npm run start` to start the server. Or, with nodemon installed as dev dependency, `npm run watch`.
-  ![server start](assets/start.jpg "nodemon watch")
+  ![server start](./media/start.jpg "nodemon watch")
 
 - external software needed to showcase the results: Insomnia.
 
@@ -48,19 +48,19 @@ Javascript, Express.js, Sequelize, MySQL database
 - Type in `http://localhost/api/` (under GET, POST, PUT & DEL) followed by `categories` or `Tags` or `Products` to view details related to each.
 
 - To GET each of the three: - Categories
-  ![Categories](assets/GetCategories.gif "All categories")
+  ![Categories](./media/GetCategories.gif "All categories")
 
 - To GET each by ID: - Categories
-  ![Categories](assets/GetCatByID.gif "three egs: of categories by id.")
+  ![Categories](./media/GetCatByID.gif "three egs: of categories by id.")
 
 - To POST (create/insert): - Categories
-  ![Categories](assets/CreateCat.gif "a new Musical Instruments category is being created and stored with id#6.")
+  ![Categories](./media/CreateCat.gif "a new Musical Instruments category is being created and stored with id#6.")
 
 - To PUT (update): - Categories
-  ![Categories](assets/UpdateCat.gif "Music category with id#3 is being updated to Songs/Music.")
+  ![Categories](./media/UpdateCat.gif "Music category with id#3 is being updated to Songs/Music.")
 
 - To DEL (delete/destroy): - Categories
-  ![Categories](assets/DelCat.gif "Previously created category id#6 is being destroyed.")
+  ![Categories](./media/DelCat.gif "Previously created category id#6 is being destroyed.")
 
 (**To view the above process for the products and tags please take a look at ![video]('walkthrough')**)
 

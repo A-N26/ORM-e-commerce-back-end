@@ -17,17 +17,17 @@ Javascript, Express.js, Sequelize, MySQL database
 ## _Table of Contents_ 📖
 
 1. 💾[Installation](#Installation)
-2. [Usage](#Usage)
-3. [Links](#Links)
-4. [Credits](#Credits)
-5. [Licence](#Licence)
-6. [Badges](#Badges)
-7. [Questions](#Questions)
-8. [Tests](#Tests)
+2. 🖥️[Usage](#Usage)
+3. 📎[Links](#Links)
+4. 💳[Credits](#Credits)
+5. 🪪[Licence](#Licence)
+6. 🦡[Badges](#Badges)
+7. ❓[Questions](#Questions)
+8. 🧪[Tests](#Tests)
 
 ---
 
-## Installation💾
+## _Installation_💾
 
 - `npm i` (to get node-modules `dependencies(nodemon as dev, dotenv, express, mysql2, sequelize)` folder and package-lock.json file from package.json).
 
@@ -43,7 +43,7 @@ Javascript, Express.js, Sequelize, MySQL database
 
 - external software needed to showcase the results: Insomnia.
 
-## *Usage* 🖥️
+## _Usage_🖥️
 
 - Open Insomnia and:
 
@@ -66,7 +66,7 @@ Javascript, Express.js, Sequelize, MySQL database
 - To DEL (delete/destroy):
   ![Delete/Destroy](./media/DelCat.gif "Previously created category id#6 is being destroyed.")
 
-## _Links_ 📎
+## _Links_📎
 
 <details>
 
@@ -78,21 +78,21 @@ Javascript, Express.js, Sequelize, MySQL database
 
 </details>
 
-## *Credits* 💳
+## _Credits_💳
 
 class sessions, Starter-code and google&youtube
 
-## *License* 🪪🦡
+## _License_🪪🦡
 
 (**Please Click the BADGE for the license details.**)
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-## *Badges* 🦡
+## _Badges_🦡
 
 ![visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white) ![Insomnia](https://img.shields.io/badge/Insomnia-for%20code%20result%20testing-%23A020F0) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
-## *Questions* ❓
+## _Questions_❓
 
 If you would like to as me anything (ama) about the project, please contact me on the info mentioned below:
 
@@ -106,10 +106,10 @@ If you would like to as me anything (ama) about the project, please contact me o
 
 </details>
 
-## *Contributing*
+## _Contributing_
 
 Please do not hesitate to fork this repo. And, there-after, create a new branch and commit, push that branch and create a pull request.☻
 
-## *Tests* 🧪
+## _Tests_🧪
 
 No testing currently implemented.

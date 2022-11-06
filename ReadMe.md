@@ -23,7 +23,8 @@ Javascript, Express.js, Sequelize, MySQL database
 5. 🪪[Licence](#Licence)
 6. 🦡[Badges](#Badges)
 7. ❓[Questions](#Questions)
-8. 🧪[Tests](#Tests)
+8. [Contribution](#Contributing)
+9. 🧪[Tests](#Tests)
 
 ---
 
@@ -43,7 +44,7 @@ Javascript, Express.js, Sequelize, MySQL database
 
 - external software needed to showcase the results: Insomnia.
 
-## _Usage_🖥️
+## _Usage🖥️_
 
 - Open Insomnia and:
 
@@ -66,7 +67,7 @@ Javascript, Express.js, Sequelize, MySQL database
 - To DEL (delete/destroy):
   ![Delete/Destroy](./media/DelCat.gif "Previously created category id#6 is being destroyed.")
 
-## _Links_📎
+## _Links📎_
 
 <details>
 
@@ -78,21 +79,21 @@ Javascript, Express.js, Sequelize, MySQL database
 
 </details>
 
-## _Credits_💳
+## _Credits💳_
 
 class sessions, Starter-code and google&youtube
 
-## _License_🪪🦡
+## _License🪪🦡_
 
 (**Please Click the BADGE for the license details.**)
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-## _Badges_🦡
+## _Badges🦡_
 
 ![visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white) ![Insomnia](https://img.shields.io/badge/Insomnia-for%20code%20result%20testing-%23A020F0) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
-## _Questions_❓
+## _Questions❓_
 
 If you would like to as me anything (ama) about the project, please contact me on the info mentioned below:
 
@@ -110,6 +111,6 @@ If you would like to as me anything (ama) about the project, please contact me o
 
 Please do not hesitate to fork this repo. And, there-after, create a new branch and commit, push that branch and create a pull request.☻
 
-## _Tests_🧪
+## _Tests🧪_
 
 No testing currently implemented.

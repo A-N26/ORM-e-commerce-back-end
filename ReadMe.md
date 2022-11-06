@@ -16,18 +16,18 @@ Javascript, Express.js, Sequelize, MySQL database
 
 ## _Table of Contents_ 📖
 
-* [Installation](#Installation) 💾
-* [Usage](#Usage) 🖥️
-* [Links](#Links) 📎
-* [Credits](#Credits) 💳
-* [Licence](#Licence) 🪪
-* [Badges](#Badges) 🦡
-* [Questions](#Questions) ❓
-* [Tests](#Tests) 🧪
+* 💾 [Installation](#Installation) 
+* 🖥️ [Usage](#Usage) 
+* 📎 [Links](#Links) 
+* 💳 [Credits](#Credits) 
+* 🪪 [Licence](#Licence) 
+* 🦡 [Badges](#Badges) 
+* ❓ [Questions](#Questions) 
+* 🧪 [Tests](#Tests) 
 
 ---
 
-## Installation 💾
+## _Installation_ 💾
 
 - `npm i` (to get node-modules `dependencies(nodemon as dev, dotenv, express, mysql2, sequelize)` folder and package-lock.json file from package.json).
 

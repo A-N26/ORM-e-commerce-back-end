@@ -16,18 +16,18 @@ Javascript, Express.js, Sequelize, MySQL database
 
 ## _Table of Contents_ 📖
 
-* 💾 [Installation](#Installation) 
-* 🖥️ [Usage](#Usage) 
-* 📎 [Links](#Links) 
-* 💳 [Credits](#Credits) 
-* 🪪 [Licence](#Licence) 
-* 🦡 [Badges](#Badges) 
-* ❓ [Questions](#Questions) 
-* 🧪 [Tests](#Tests) 
+1. 💾 [Installation](#Installation)
+2. 🖥️ [Usage](#Usage)
+3. 📎 [Links](#Links)
+4. 💳 [Credits](#Credits)
+5. 🪪 [Licence](#Licence)
+6. 🦡 [Badges](#Badges)
+7. ❓ [Questions](#Questions)
+8. 🧪 [Tests](#Tests)
 
 ---
 
-## _Installation_ 💾
+## Installation 💾
 
 - `npm i` (to get node-modules `dependencies(nodemon as dev, dotenv, express, mysql2, sequelize)` folder and package-lock.json file from package.json).
 
@@ -66,7 +66,7 @@ Javascript, Express.js, Sequelize, MySQL database
 - To DEL (delete/destroy):
   ![Delete/Destroy](./media/DelCat.gif "Previously created category id#6 is being destroyed.")
 
-## *Links* 📎
+## _Links_ 📎
 
 <details>
 

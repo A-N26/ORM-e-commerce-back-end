@@ -44,7 +44,7 @@ Javascript, Express.js, Sequelize, MySQL database
 
 - external software needed to showcase the results: Insomnia.
 
-## _Usage🖥️_
+## _Usage🖥_
 
 - Open Insomnia and:
 

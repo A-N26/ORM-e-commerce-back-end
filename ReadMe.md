@@ -27,7 +27,7 @@ Javascript, Express.js, Sequelize, MySQL database
 
 ---
 
-## *Installation* 💾
+## Installation 💾
 
 - `npm i` (to get node-modules `dependencies(nodemon as dev, dotenv, express, mysql2, sequelize)` folder and package-lock.json file from package.json).
 

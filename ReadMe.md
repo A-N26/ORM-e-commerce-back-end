@@ -16,14 +16,14 @@ Javascript, Express.js, Sequelize, MySQL database
 
 ## _Table of Contents_ 📖
 
-- [Installation](#Installation) 💾
-- [Usage](#Usage) 🖥️
-- [Links](#Links) 📎
-- [Credits](#Credits) 💳
-- [Licence](#Licence) 🪪
-- [Badges](#Badges) 🦡
-- [Questions](#Questions) ❓
-- [Tests](#Tests) 🧪
+* [Installation](#Installation) 💾
+* [Usage](#Usage) 🖥️
+* [Links](#Links) 📎
+* [Credits](#Credits) 💳
+* [Licence](#Licence) 🪪
+* [Badges](#Badges) 🦡
+* [Questions](#Questions) ❓
+* [Tests](#Tests) 🧪
 
 ---
 
